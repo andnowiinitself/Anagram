@@ -1,0 +1,76 @@
+openapi: 3.0.1
+info:
+  title: Anagram API
+  description: Backend для саммари телеграм-каналов
+  version: "1.0"
+servers:
+  - url: http://localhost:8080
+paths:
+  /health:
+    get:
+      summary: Проверка работоспособности
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+  /api/summarize:
+    post:
+      summary: Сделать саммари текста
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  example: "Привет, это тестовый текст"
+      responses:
+        '200':
+          description: Успех
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  summary:
+                    type: string
+                    example: "Краткое содержание..."
+  /api/channels/refresh:
+    post:
+      summary: Получить сообщения из канала и сделать саммари
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channel_link:
+                  type: string
+                  example: "durov"
+                limit:
+                  type: integer
+                  example: 5
+      responses:
+        '200':
+          description: Успех
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channel:
+                    type: string
+                  summary:
+                    type: string
+                  is_mock:
+                    type: boolean
