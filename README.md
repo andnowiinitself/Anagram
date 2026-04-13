@@ -1,4 +1,4 @@
-# Anagram — Telegram Summarizer
+# Anagram — Telegram Summarizer ([!]ALPHA[!])
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9.22-purple?logo=kotlin)](https://kotlinlang.org)a
 [![Ktor](https://img.shields.io/badge/Ktor-2.3.7-blue?logo=kotlin)](https://ktor.io)

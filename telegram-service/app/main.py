@@ -23,7 +23,7 @@ load_dotenv(dotenv_path=env_path)
 # cfg
 API_ID = os.getenv("TELEGRAM_API_ID", "")
 API_HASH = os.getenv("TELEGRAM_API_HASH", "")
-SESSION_NAME = "telegram_session"
+SESSION_NAME = "anagram"
 MOCK_MODE = not API_ID or not API_HASH or API_ID == "123456"
 
 client: TelegramClient | None = None
@@ -94,7 +94,6 @@ async def fetch_messages(
         raise HTTPException(status_code=503, detail="Telegram client not initialized")
     
     try:
-        # извлекаем username
         channel_username = (
             channel_link
             .replace("https://t.me/", "")

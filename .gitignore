@@ -9,6 +9,8 @@ build/
 
 ### PROJECT ###
 .env
+*.session
+*.session-journal
 
 # Python
 **/venv/
